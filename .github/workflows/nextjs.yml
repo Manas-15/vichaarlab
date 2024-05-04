@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"  # Adjust the Node.js version if needed
+          node-version: "14"  # Adjust the Node.js version if needed
 
       - name: Detect package manager
         id: detect-package-manager
@@ -41,6 +41,9 @@ jobs:
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
+      - name: Install Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} npm install next react react-dom
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
