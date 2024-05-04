@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: nextjs-build
-          path: ./.next  # Upload the .next directory as an artifact
+          path: ./.next 
 
   # Deployment job
   deploy:
@@ -65,11 +65,11 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: nextjs-build  # Use the correct artifact name here
-          path: ./.next  # Download the .next directory artifact
+          name: nextjs-build 
+          path: ./.next 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.next  # Deploy the .next directory to GitHub Pages
+          publish_dir: ./.next 
